@@ -9,6 +9,9 @@ function App() {
 				<h1>Skyblock Stock Brokers Fishing Simulator</h1>
 			</header>
 			<Thing />
+			<footer className="App-footer">
+				<h3>a</h3>
+			</footer>
 		</div>
 	);
 }

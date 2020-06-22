@@ -1,4 +1,9 @@
 import React from "react";
+import Item from "./Item";
+import Stat from "./Stat";
+import Section from "./Section";
+import FishInv from "./FishInv";
+import Inventory from "./Inventory";
 import axios from "axios";
 
 export default class Thing extends React.Component {
@@ -147,183 +152,49 @@ export default class Thing extends React.Component {
 							position: "absolute",
 							left: "50%",
 							transform: "translate(-50%, 0)",
+							marginBottom: "15vh",
 						}}
 					>
-						<tr>
-							<td>Name</td>
-							<td>{data.player}</td>
-						</tr>
-						{/* <tr>
-							<td></td>
-							<td>{data.}</td>
-						</tr> */}
-						<tr>
-							<td>Gear Score</td>
-							<td>{data.playerScore}</td>
-						</tr>
-						<tr>
-							<td>Level</td>
-							<td>{data.level}</td>
-						</tr>
-						<tr>
-							<td>Coins</td>
-							<td>{data.coins}</td>
-						</tr>
-						<tr>
-							<td>XP</td>
-							<td>{data.xp}</td>
-						</tr>
-						<tr>
-							<td>XP to next level</td>
-							<td>{data.xpNextLevel}</td>
-						</tr>
-						<tr>
-							<td>Health</td>
-							<td>{data.health}</td>
-						</tr>
-						<tr>
-							<td>Strength</td>
-							<td>{data.strength}</td>
-						</tr>
-						<tr>
-							<td>Damage</td>
-							<td>{data.damage}</td>
-						</tr>
-						<tr>
-							<td>Sea Creature Chance</td>
-							<td>{data.seaCreaturechance}</td>
-						</tr>
-						<tr>
-							<td>Fishing Speed</td>
-							<td>{data.fishingSpeed}</td>
-						</tr>
-						<tr>
-							<td>Loot Luck</td>
-							<td>{data.lootLuck}</td>
-						</tr>
-						<tr>
-							<th colspan="2">
-								<h2>
-									<b>Equipment</b>
-								</h2>
-							</th>
-						</tr>
-						<tr>
-							<th>Helmet</th>
-							<th>
-								{data.helmet.name} - {data.helmet.description}
-							</th>
-						</tr>
-						<tr>
-							<td>Health</td>
-							<td>{data.helmet.health}</td>
-						</tr>
-						<tr>
-							<td>Strength</td>
-							<td>{data.helmet.strength}</td>
-						</tr>
-						<tr>
-							<td>Sell Price</td>
-							<td>{data.helmet.sellValue}</td>
-						</tr>
+						<tbody>
+							<Stat name="Name" data={data.player} />
+							<Stat name="Gear Score" data={data.playerScore} />
+							<Stat name="Level" data={data.level} />
+							<Stat name="Coins" data={data.coins} />
+							<Stat name="XP" data={data.xp} />
+							<Stat
+								name="XP to next level"
+								data={data.xpNextLevel}
+							/>
+							<Stat name="Health" data={data.health} />
+							<Stat name="Strength" data={data.strength} />
+							<Stat name="Damage" data={data.damage} />
+							<Stat
+								name="Sea Creature Chance"
+								data={data.seaCreaturechance}
+							/>
+							<Stat
+								name="Fishing Speed"
+								data={data.fishingSpeed}
+							/>
+							<Stat name="Loot Luck" data={data.lootLuck} />
 
-						<tr>
-							<th>Chestplate</th>
-							<th>
-								{data.chestplate.name} -{" "}
-								{data.chestplate.description}
-							</th>
-						</tr>
-						<tr>
-							<td>Health</td>
-							<td>{data.chestplate.health}</td>
-						</tr>
-						<tr>
-							<td>Strength</td>
-							<td>{data.chestplate.strength}</td>
-						</tr>
-						<tr>
-							<td>Sell Price</td>
-							<td>{data.chestplate.sellValue}</td>
-						</tr>
+							<Section name="Equipment" />
 
-						<tr>
-							<th>Leggings</th>
-							<th>
-								{data.leggings.name} -{" "}
-								{data.leggings.description}
-							</th>
-						</tr>
-						<tr>
-							<td>Health</td>
-							<td>{data.leggings.health}</td>
-						</tr>
-						<tr>
-							<td>Strength</td>
-							<td>{data.leggings.strength}</td>
-						</tr>
-						<tr>
-							<td>Sell Price</td>
-							<td>{data.leggings.sellValue}</td>
-						</tr>
+							<Item name="Helmet" data={data.helmet} />
+							<Item name="Chestplate" data={data.chestplate} />
+							<Item name="Leggings" data={data.leggings} />
+							<Item name="Boots" data={data.boots} />
+							<Item name="Pet" data={data.pet} />
+							<Item
+								name="Fishing Rod"
+								data={data.fishingRod}
+								weapon={true}
+							/>
 
-						<tr>
-							<th>Boots</th>
-							<th>
-								{data.boots.name} - {data.boots.description}
-							</th>
-						</tr>
-						<tr>
-							<td>Health</td>
-							<td>{data.boots.health}</td>
-						</tr>
-						<tr>
-							<td>Strength</td>
-							<td>{data.boots.strength}</td>
-						</tr>
-						<tr>
-							<td>Sell Price</td>
-							<td>{data.boots.sellValue}</td>
-						</tr>
+							<Inventory inv={data.inventory} />
 
-						<tr>
-							<th>Pet</th>
-							<th>
-								{data.pet.name} - {data.pet.description}
-							</th>
-						</tr>
-						<tr>
-							<td>Health</td>
-							<td>{data.pet.health}</td>
-						</tr>
-						<tr>
-							<td>Strength</td>
-							<td>{data.pet.strength}</td>
-						</tr>
-						<tr>
-							<td>Sell Price</td>
-							<td>{data.pet.sellValue}</td>
-						</tr>
-
-						<tr>
-							<th>Fishing Rod</th>
-							<th>
-								{data.fishingRod.name} -{" "}
-								{data.fishingRod.description}
-							</th>
-						</tr>
-						<tr>
-							<td>Health</td>
-							<td>{data.fishingRod.health}</td>
-						</tr>
-						<tr>
-							<td>Strength</td>
-							<td>{data.fishingRod.strength}</td>
-						</tr>
-						<tr>
-							<td>Sell Price</td>
-							<td>{data.fishingRod.sellValue}</td>
-						</tr>
+							<FishInv fish={data.fish} />
+						</tbody>
 					</table>
 				</>
 			);
