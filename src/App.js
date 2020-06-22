@@ -6,7 +6,7 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
-				<h1>Thing</h1>
+				<h1>Skyblock Stock Brokers Fishing Simulator</h1>
 			</header>
 			<Thing />
 		</div>
