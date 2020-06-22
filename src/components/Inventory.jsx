@@ -10,7 +10,25 @@ export default class Fish extends React.Component {
 
 				{this.props.inv.length > 0 ? (
 					this.props.inv.map((item) => (
-						<Item name="Item" data={item} />
+						<Item
+							data={item}
+							name={
+								item.type === "boots"
+									? "Boots"
+									: item.type === "helmet"
+									? "Helmet"
+									: item.type === "leggings"
+									? "Leggings"
+									: item.type === "chestplate"
+									? "Chestplate"
+									: item.type === "fishingRod"
+									? "Fishing Rod"
+									: item.type === "pet"
+									? "Pet"
+									: "Item"
+							}
+							weapon={item.type === "fishingRod"}
+						/>
 					))
 				) : (
 					<tr>

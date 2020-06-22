@@ -27,3 +27,13 @@
   overflow: hidden;
   max-height: 10vh;
 }
+
+.discordPopup {
+  position: fixed;
+  left: 56vw;
+  bottom: 3vh;
+}
+
+.discordHover {
+  padding: 2vh 2vw;
+}
