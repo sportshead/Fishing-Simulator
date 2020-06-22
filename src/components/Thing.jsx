@@ -146,7 +146,6 @@ export default class Thing extends React.Component {
 						style={{
 							position: "absolute",
 							left: "50%",
-							transform: "translate(-50%, -50%)",
 							transform: "translate(-50%, 0)",
 						}}
 					>
@@ -290,40 +289,40 @@ export default class Thing extends React.Component {
 						<tr>
 							<th>Pet</th>
 							<th>
-								{data.pet[0].name} - {data.pet[0].description}
+								{data.pet.name} - {data.pet.description}
 							</th>
 						</tr>
 						<tr>
 							<td>Health</td>
-							<td>{data.pet[0].health}</td>
+							<td>{data.pet.health}</td>
 						</tr>
 						<tr>
 							<td>Strength</td>
-							<td>{data.pet[0].strength}</td>
+							<td>{data.pet.strength}</td>
 						</tr>
 						<tr>
 							<td>Sell Price</td>
-							<td>{data.pet[0].sellValue}</td>
+							<td>{data.pet.sellValue}</td>
 						</tr>
 
 						<tr>
 							<th>Fishing Rod</th>
 							<th>
-								{data.fishingRod[0].name} -{" "}
-								{data.fishingRod[0].description}
+								{data.fishingRod.name} -{" "}
+								{data.fishingRod.description}
 							</th>
 						</tr>
 						<tr>
 							<td>Health</td>
-							<td>{data.fishingRod[0].health}</td>
+							<td>{data.fishingRod.health}</td>
 						</tr>
 						<tr>
 							<td>Strength</td>
-							<td>{data.fishingRod[0].strength}</td>
+							<td>{data.fishingRod.strength}</td>
 						</tr>
 						<tr>
 							<td>Sell Price</td>
-							<td>{data.fishingRod[0].sellValue}</td>
+							<td>{data.fishingRod.sellValue}</td>
 						</tr>
 					</table>
 				</>
