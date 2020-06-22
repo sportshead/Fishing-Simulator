@@ -1,4 +1,4 @@
-# hypixel thing
+# Skyblock Stock Brokers Fishing Simulator
 
 ## commands
 - `yarn` install deps
