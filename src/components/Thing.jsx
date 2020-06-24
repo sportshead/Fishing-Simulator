@@ -42,7 +42,7 @@ export default class Thing extends React.Component {
 
 		axios
 			.get(
-				"http://107.191.58.9:5000/find/" +
+				"https://107.191.58.9:5000/find/" +
 					encodeURIComponent(this.state.search),
 				{
 					validateStatus: function (status) {
