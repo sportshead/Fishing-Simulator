@@ -43,7 +43,14 @@ export default class Thing extends React.Component {
 		axios
 			.get(
 				"http://107.191.58.9:5000/find/" +
-					encodeURIComponent(this.state.search)
+					encodeURIComponent(this.state.search),
+				{
+					validateStatus: function (status) {
+						return (
+							(status >= 200 && status < 300) || status === 400
+						);
+					},
+				}
 			)
 			.then((res) => {
 				console.log(res.data);
@@ -71,6 +78,7 @@ export default class Thing extends React.Component {
 							type="text"
 							value={this.state.search}
 							onChange={this.handleChange}
+							maxlength="37"
 						/>
 						<input type="submit" value="Submit" />
 					</form>
@@ -87,6 +95,7 @@ export default class Thing extends React.Component {
 							type="text"
 							value={this.state.search}
 							onChange={this.handleChange}
+							maxlength="37"
 						/>
 						<input type="submit" value="Submit" />
 					</form>
@@ -105,6 +114,7 @@ export default class Thing extends React.Component {
 							type="text"
 							value={this.state.search}
 							onChange={this.handleChange}
+							maxlength="37"
 						/>
 						<input type="submit" value="Submit" />
 					</form>
@@ -114,8 +124,8 @@ export default class Thing extends React.Component {
 				</>
 			);
 		} else {
-			if (data.message) {
-				if (data.message === "invalid") {
+			if (data.msg) {
+				if (data.msg === "No user found") {
 					return (
 						<>
 							<form onSubmit={this.handleSubmit}>
@@ -123,6 +133,7 @@ export default class Thing extends React.Component {
 									type="text"
 									value={this.state.search}
 									onChange={this.handleChange}
+									maxlength="37"
 								/>
 								<input type="submit" value="Submit" />
 							</form>
@@ -130,7 +141,52 @@ export default class Thing extends React.Component {
 								className="UserNotFound error"
 								style={{ color: "red" }}
 							>
-								<b>Error: User Not Found</b>
+								<b>Error: User not found</b>
+							</h2>
+						</>
+					);
+				} else if (data.msg === "Search Input too long") {
+					return (
+						<>
+							<form onSubmit={this.handleSubmit}>
+								<input
+									type="text"
+									value={this.state.search}
+									onChange={this.handleChange}
+									maxlength="37"
+								/>
+								<input type="submit" value="Submit" />
+							</form>
+							<h2
+								className="InputTooLong error"
+								style={{ color: "red" }}
+							>
+								<b>
+									Error: Search input greater than 37
+									characters!
+								</b>
+							</h2>
+						</>
+					);
+				} else if (data.msg === "Search Input too short") {
+					return (
+						<>
+							<form onSubmit={this.handleSubmit}>
+								<input
+									type="text"
+									value={this.state.search}
+									onChange={this.handleChange}
+									maxlength="37"
+								/>
+								<input type="submit" value="Submit" />
+							</form>
+							<h2
+								className="InputTooLong error"
+								style={{ color: "red" }}
+							>
+								<b>
+									Error: Search input less than 5 characters!
+								</b>
 							</h2>
 						</>
 					);
@@ -143,6 +199,7 @@ export default class Thing extends React.Component {
 							type="text"
 							value={this.state.search}
 							onChange={this.handleChange}
+							maxlength="37"
 						/>
 						<input type="submit" value="Submit" />
 					</form>
